@@ -15,5 +15,5 @@ jobs:
       - name: Print current date and time
         run: |
           echo "Triggered by: ${{ github.event_name }}"
-          echo "UTC: $(date '+%Y-%m-%d %H:%M:%S %Z')"
-          echo "Moscow: $(TZ='Europe/Moscow' date '+%H:%M:%S %Z')"
+          echo "UTC: $(date '+%Y-%m-%d %H:%M:%S')"
+          echo "Moscow: $(TZ='Europe/Moscow' date '+%Y-%m-%d +%H:%M:%S')"
