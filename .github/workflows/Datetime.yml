@@ -15,5 +15,4 @@ jobs:
       - name: Print current date and time
         run: |
           echo "Triggered by: ${{ github.event_name }}"
-          echo "Date: $(date +'%Y-%m-%d')"
-          echo "Time: $(date +'%H:%M:%S')"
+          Local time: $(date '+%Y-%m-%d %H:%M:%S %Z')
