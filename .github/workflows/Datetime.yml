@@ -16,4 +16,4 @@ jobs:
         run: |
           echo "Triggered by: ${{ github.event_name }}"
           echo "UTC: $(date '+%Y-%m-%d %H:%M:%S')"
-          echo "Moscow: $(TZ='Europe/Moscow' date '+%Y-%m-%d +%H:%M:%S')"
+          echo "Moscow: $(TZ='Europe/Moscow' date '+%Y-%m-%d %H:%M:%S')"
