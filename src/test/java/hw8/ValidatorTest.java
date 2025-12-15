@@ -31,7 +31,7 @@ class ValidatorTest {
         ValidationResult result = Validator.validate(user);
 
         assertFalse(result.isValid());
-        assertEquals(2, result.getErrors().size()); // @NotNull и @Size (для null)
+        assertEquals(2, result.getErrors().size());
         assertTrue(result.getErrors().contains("Имя не может быть null"));
     }
 
@@ -80,10 +80,10 @@ class ValidatorTest {
     @Test
     void testMultipleErrors() {
         User user = new User();
-        user.setName("A"); // слишком короткое имя
-        user.setEmail(null); // null email
-        user.setAge(-5); // отрицательный возраст
-        user.setPassword("123"); // короткий пароль
+        user.setName("A");
+        user.setEmail(null);
+        user.setAge(-5);
+        user.setPassword("123");
 
         ValidationResult result = Validator.validate(user);
 
@@ -94,10 +94,10 @@ class ValidatorTest {
     @Test
     void testBoundaryValues() {
         User user = new User();
-        user.setName("AB"); // ровно 2 символа
-        user.setEmail("a@b.c"); // минимальный валидный email
-        user.setAge(0); // минимальный возраст
-        user.setPassword("123456"); // ровно 6 символов
+        user.setName("AB");
+        user.setEmail("a@b.c");
+        user.setAge(0);
+        user.setPassword("123456");
 
         ValidationResult result = Validator.validate(user);
 
@@ -115,7 +115,6 @@ class ValidatorTest {
 
     @Test
     void testAllAnnotations() {
-        // Создаем пользователя с ошибками для каждой аннотации
         User user = new User(null, "invalid", 200, "123");
 
         ValidationResult result = Validator.validate(user);

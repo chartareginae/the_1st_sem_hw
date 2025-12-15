@@ -27,7 +27,6 @@ public class Validator {
             try {
                 Object value = field.get(object);
 
-                // Проверка @NotNull
                 if (field.isAnnotationPresent(NotNull.class)) {
                     NotNull annotation = field.getAnnotation(NotNull.class);
                     if (value == null) {
@@ -35,12 +34,10 @@ public class Validator {
                     }
                 }
 
-                // Если поле null, пропускаем остальные проверки (кроме @NotNull)
                 if (value == null) {
                     continue;
                 }
 
-                // Проверка @Size для строк
                 if (field.isAnnotationPresent(Size.class) && value instanceof String) {
                     Size annotation = field.getAnnotation(Size.class);
                     String strValue = (String) value;
@@ -54,7 +51,6 @@ public class Validator {
                     }
                 }
 
-                // Проверка @Range для чисел
                 if (field.isAnnotationPresent(Range.class)) {
                     Range annotation = field.getAnnotation(Range.class);
                     long numericValue = 0;
@@ -81,7 +77,6 @@ public class Validator {
                     }
                 }
 
-                // Проверка @Email для строк
                 if (field.isAnnotationPresent(Email.class) && value instanceof String) {
                     Email annotation = field.getAnnotation(Email.class);
                     String email = (String) value;
